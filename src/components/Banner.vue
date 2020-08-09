@@ -31,9 +31,9 @@
       </p>
       <p class="description less-margin">Thank you for visiting my site!</p>
       <div id="external">
-        <i class="fab fa-github"></i>
-        <i class="fab fa-linkedin"></i>
-        <i class="fab fa-twitter"></i>
+        <a class="external-link" href="https://github.com/Apozzi"><i class="fab fa-github"></i></a>
+        <a class="external-link" href="https://br.linkedin.com/in/anderson-rodrigo-pozzi-a06246186"><i class="fab fa-linkedin"></i></a>
+        <a class="external-link" href="https://twitter.com/PAngelAndy"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
     <img id="banner-image" class="banner-image" alt="banner" src="../assets/banner.jpg" />
@@ -165,6 +165,10 @@ p {
   &:hover {
     color: grey;
   }
+}
+
+.external-link {
+  color: white;
 }
 </style>
 
