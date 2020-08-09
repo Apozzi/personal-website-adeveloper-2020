@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
     <p class="commons">© 2020 Anderson R. Pozzi. All rights reserved.</p>
+    <p class="credit">Developted with Vue.js</p>
   </div>
   
 </template>
@@ -24,12 +25,14 @@ export default class Footer extends Vue {
     margin: 0;
     display: inline-block;
     list-style: none;
-    margin-left: 1.5em;
-    padding-left: 1.5em;
     text-align: center;
     color: #b9b9b9;
     font-size: 18px;
     font-weight: 100;
+  }
+
+  .credit {
+    color: #b9b9b9;
   }
 </style>
 

@@ -30,6 +30,11 @@
         And to know each other better.
       </p>
       <p class="description less-margin">Thank you for visiting my site!</p>
+      <div id="external">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
     </div>
     <img id="banner-image" class="banner-image" alt="banner" src="../assets/banner.jpg" />
   </div>
@@ -45,7 +50,7 @@ export default class Banner extends Vue {
 
   mounted() {
     anime({
-      targets: [".less-opacity", ".subtitle", ".description", ".name"],
+      targets: [".less-opacity", ".subtitle", ".description", ".name", "#external"],
       translateY: 200,
       direction: 'reverse',
       duration: 1000,
@@ -150,6 +155,16 @@ export default class Banner extends Vue {
 
 p {
   line-height: 1.5;
+}
+
+.svg-inline--fa {
+  font-size: 36px;
+  padding-right: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  &:hover {
+    color: grey;
+  }
 }
 </style>
 
