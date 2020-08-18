@@ -5,7 +5,7 @@ Domain controlled by godaddy.com
 
 ![Screenshot](https://i.ibb.co/n39Z9s6/site.png)
 
-Please read the license...
+Please read the license.
 
 ## Build
 ```
