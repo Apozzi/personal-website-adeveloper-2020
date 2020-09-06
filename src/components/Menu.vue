@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" v-if="!isMobile()">
     <h1 class="title"><strong style="
         color: #ffffff;
     "><a style="
@@ -45,6 +45,15 @@ import anime from "animejs";
 @Component
 export default class Menu extends Vue {
 
+  isMobile() {
+      if( screen.width <= 760 ) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
+
   mounted() {
     anime({
       targets: [".menu"],
@@ -61,6 +70,7 @@ export default class Menu extends Vue {
 </script>
 
 <style scoped lang="scss">
+
 .menu {
     background-color: #272727;
     background-image: url(https://www.transparenttextures.com/patterns/cartographer.png);
@@ -68,7 +78,6 @@ export default class Menu extends Vue {
     top: 0px;
     left: 0px;
     height: calc(100% - 56px);
-    c: #272727;
     padding: 10px;
     margin: 0px;
     width: 108px;

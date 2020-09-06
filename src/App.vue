@@ -9,6 +9,7 @@
 <style lang="scss">
 html {
   line-height: 1.5;
+  overflow-x: hidden; 
 }
 
 #app {

@@ -22,7 +22,12 @@
                 <div>
                   <ul class="actions">
                     <li><Button v-on:click.native="sendEmail" class="msg" label="Send message" /></li>
-                    <li><Button v-on:click.native="reset" class="reset" label="Reset" /></li>
+                    <li><Button v-if="!isMobile()" v-on:click.native="reset" class="reset" label="Reset" /></li>
+                    <li v-if="isMobile()">
+                      <router-link to="/">
+                      <Button class="reset" label="Back" />
+                      </router-link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -64,6 +69,14 @@ export default {
     };
   },
   methods: {
+    isMobile() {
+      if( screen.width <= 760 ) {
+          return true;
+      }
+      else {
+          return false;
+      }
+    },
     reset() {
       this.name = null;
       this.email = null;
@@ -139,6 +152,7 @@ export default {
   .wrapper {
     margin-left: 207px;
     margin-top: 83px;
+    height: calc(100vw - 220px);
   }
 
   .checkbox {
@@ -149,9 +163,6 @@ export default {
     width: 45.5px;
     margin-top: 16px;
     margin-left: -2px;
-    &:hover {
-
-    }
   }
 
   .checkbox-txt {
@@ -241,5 +252,39 @@ export default {
     padding-top: 24px;
     padding-right: 27px;
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .wrapper {
+      margin-left: 0px;
+    }
+
+    .txtarea-box {
+      width: calc(100% - 54px);
+    }
+
+    .reset {
+      margin-left: 85px;
+    }
+
+    .msg {
+      float: none;
+      margin: 9px;
+      margin-left: -38px;
+    }
+
+    .button {
+      float: left;
+      margin: 9px;
+    }
+
+    .about {
+      margin: 25px;
+    }
+
+    #name, #email {
+      width: calc(100% - 38px);
+      margin-top: 5px;
+    }
   }
 </style>

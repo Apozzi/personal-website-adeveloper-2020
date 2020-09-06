@@ -34,6 +34,13 @@ export default class Footer extends Vue {
   .credit {
     color: #b9b9b9;
   }
+
+  @media screen and (max-width: 400px) {
+    .commons {
+      font-size: 13px;
+    }
+  }
+
 </style>
 
 

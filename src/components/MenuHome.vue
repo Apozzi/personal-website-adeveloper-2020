@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="item">Home</div>
     <div class="item"><a href="#about">About me</a></div>
-    <router-link to="/archive"><div class="item">Archive</div></router-link>
+    <router-link to="/archive"><div v-if="!isMobile()" class="item">Archive</div></router-link>
     <router-link to="/contact"><div class="item">Contact</div></router-link>
   </div>
   
@@ -14,6 +14,15 @@ import anime from "animejs";
 
 @Component
 export default class MenuHome extends Vue {
+
+  isMobile() {
+      if( screen.width <= 760 ) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
 
   mounted() {
     anime({
@@ -55,6 +64,27 @@ export default class MenuHome extends Vue {
    color: #dddddd;
    &:hover {color: white !important;}
  }
+
+ @media screen and (max-width: 400px) {
+    .item {
+        float: left;
+        padding: 23px !important;
+    }
+
+    .menu {
+        position: absolute;
+        background-color: #353535;
+        width: 100%;
+        top: 98px;
+        right: 0;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .item {
+        padding: 21px;
+    }
+  }
 </style>
 
 

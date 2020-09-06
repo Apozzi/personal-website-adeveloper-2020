@@ -41,7 +41,7 @@ export default class Contact extends Vue {
     font-size: 3em;
     padding-top: 121px;
     margin-right: 30%;
-    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto;
+    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto, -apple-system;
   }
 
   .contact-text {
@@ -56,6 +56,22 @@ export default class Contact extends Vue {
     line-height: 63px;
     font-size: 27px;
     margin-top: -7px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .contact {
+      height: 400px;
+    }
+
+    .contact-text {
+      margin-left: calc(50% - 106px);
+      font-size: 22px;
+    }
+
+    .contact-button {
+      margin-left: calc(50% - 98px);
+      margin-top: 40px;
+    }
   }
 </style>
 

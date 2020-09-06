@@ -33,7 +33,8 @@
       <div id="external">
         <a class="external-link" href="https://github.com/Apozzi"><i class="fab fa-github"></i></a>
         <a class="external-link" href="https://br.linkedin.com/in/anderson-rodrigo-pozzi-a06246186"><i class="fab fa-linkedin"></i></a>
-        <a class="external-link" href="https://twitter.com/PAngelAndy"><i class="fab fa-twitter"></i></a>
+        <!--<a class="external-link" href="https://twitter.com/PAngelAndy"><i class="fab fa-twitter"></i></a> -->
+        <a class="external-link" href="https://drive.google.com/file/d/1KZDJPO-VqTqIxZi8M2nFZDbsSW8sfsOZ/view?usp=sharing"><Button class="curriculum-button" label="Curriculum vitae"/></a>
       </div>
     </div>
     <img id="banner-image" class="banner-image" alt="banner" src="../assets/banner.jpg" />
@@ -43,8 +44,14 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import anime from "animejs";
+import Button from "@/components/Button.vue";
 
-@Component
+
+@Component({
+  components: {
+    Button
+  }
+})
 export default class Banner extends Vue {
   @Prop() private msg!: string;
 
@@ -105,7 +112,7 @@ export default class Banner extends Vue {
     color: white;
     padding-top: 18rem;
     font-size: 1.20rem;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
     grid-column-start: 1;
     grid-column-end: 8;
     margin-left: auto;
@@ -170,6 +177,81 @@ p {
 .external-link {
   color: white;
 }
+
+.curriculum-button {
+    height: 52px;
+    width: 147px;
+    padding: 0 1em;
+    font-size: 15px;
+    line-height: 3.25em;
+    position: absolute;
+    top: 2px;
+}
+
+@media screen and (max-width: 1200px) {
+  .banner-image {
+      display: none;
+  }
+
+  .banner-hello {
+      margin: 0 auto;
+      position: absolute;
+      left: calc(50% - 297px);
+      align-items: center;
+      text-align: center;
+  }
+
+  #andysvg {
+      left: 175px;
+  }
+
+  .curriculum-button {
+    top: 66px;
+    left: calc(50% - 98px);
+  }
+
+  .name {
+    max-width: 100vw;
+    line-height: 1;
+    margin: auto;
+  }
+
+  .description {
+    max-width: 100vw;
+    margin: 80px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .banner-hello {
+      position: absolute;
+      left: 0px;
+      padding-top: 17rem !important;
+  }
+
+  #andysvg {
+      display: none;
+  }
+
+  .description {
+    font-size: 14px;
+    width: 210px;
+  }
+
+  #external {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+    .banner-hello {
+        padding-top: 14rem;
+    }
+
+    .title-kanji {
+        top: 142px;
+    }
+  }
 </style>
 
 

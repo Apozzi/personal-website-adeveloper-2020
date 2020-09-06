@@ -85,8 +85,24 @@ export default class About extends Vue {
 
   p {
     font-size: 18px;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
     color: #b9b9b9;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .profile {
+      display: none;
+    }
+
+    .about-txt {
+        padding-left: 10vw;
+        width: 80vw;
+    }
+
+    .about {
+      height: fit-content;
+      padding-bottom: 25px;
+    }
   }
 </style>
 

@@ -4,7 +4,7 @@
     <div class="archive">
       <div class="archive-item" v-for="archive in archives" :key="archive">
         <a v-bind:href="archive.link">
-        <img class="archive-img">
+        <img class="archive-img" :src="archive.img">
         <div class="archive-title">{{archive.title}}</div>
         <div class="archive-subtitle">
           {{archive.description}}
@@ -88,6 +88,12 @@ export default {
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .archive {
+    margin-left: 0px;
+  }
 }
 
 

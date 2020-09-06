@@ -157,7 +157,7 @@ export default class FeatureGrid extends Vue {
     margin: 0 0 1em 0;
     text-transform: uppercase;
     font-size: 3em;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
  }
 
  h2 {
@@ -175,7 +175,7 @@ export default class FeatureGrid extends Vue {
     text-transform: uppercase;
     font-size: 2.5em;
     margin-bottom: 0;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
  }
 
  .feature-left {
@@ -200,7 +200,7 @@ export default class FeatureGrid extends Vue {
     margin-bottom: 60px;
     max-width: 400px;
     height: 200px;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
  }
  
  .content-right {
@@ -211,7 +211,7 @@ export default class FeatureGrid extends Vue {
     margin-bottom: 60px;
     max-width: 400px;
     height: 200px;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
  }
 
  .content-subtitle {
@@ -223,7 +223,7 @@ export default class FeatureGrid extends Vue {
 
  p {
     font-size: 19px;
-    font-family: Inter, BlinkMacSystemFont, Segoe UI;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
     color: #666;
  }
 
@@ -244,6 +244,61 @@ export default class FeatureGrid extends Vue {
     border: solid 4px #dedede;
     height: 192px;
  }
+
+ @media screen and (max-width: 1200px) {
+      .content-left, .content-right {
+          margin-top: 30px;
+      }
+
+      .wrapper {
+          height: 1460px;
+      }
+  }
+
+  @media screen and (max-width: 900px) {
+      .feature-left, .feature-right {
+          width: 100%;
+      }
+
+      .wrapper {
+          height: 1710px;
+      }
+  }
+
+  @media screen and (max-width: 750px) {
+      .img-left, .img-right {
+          display: none;
+      }
+
+      .major {
+          padding-bottom: 00px;
+      }
+
+      .subtitle {
+          font-size: 19px;
+      }
+
+      .wrapper {
+          height: 1800px;
+      }
+
+      .content-left {
+        text-align: center;
+        margin-left: 20px;
+      }
+
+      .content-right {
+        text-align: center;
+        margin-left: 20%;
+      }
+
+      .feature-left, .feature-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+  }
 </style>
 
 
