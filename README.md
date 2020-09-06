@@ -1,24 +1,18 @@
-# public
+# Personal website, Anderson Rodrigo Pozzi.
 
-## Project setup
-```
-npm install
-```
+Firebase url: https://personal-website-3c67f.web.app/
+Domain controlled by godaddy.com
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+![Screenshot](https://i.ibb.co/n39Z9s6/site.png)
 
-### Compiles and minifies for production
+Please read the license...
+
+## Build
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Deploy
 ```
-npm run lint
+firebase deploy
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
