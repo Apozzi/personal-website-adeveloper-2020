@@ -139,7 +139,7 @@ export default class Banner extends Vue {
   margin-top: 30px;
 }
 .banner-image {
-  height: 100%;
+  height: 64rem;
   margin-left: -170px;
   clip-path: polygon(0% 0,100% 0,100% 100%,20% 100%);
 }

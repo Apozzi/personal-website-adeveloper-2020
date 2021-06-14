@@ -30,3 +30,9 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.home {
+  overflow: hidden;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <p class="commons">© 2020 Anderson R. Pozzi. All rights reserved.</p>
-    <p class="credit">Developted with Vue.js</p>
+    <p class="credit">Developed with Vue.js</p>
   </div>
   
 </template>
