@@ -12,7 +12,7 @@ Please read the license...
 npm run build
 ```
 
-### Deploy
+### Deploy 
 ```
 firebase deploy
 ```
