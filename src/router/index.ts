@@ -27,6 +27,12 @@ const routes: Array<RouteConfig> = [
     name: "jsquantum-simulator",
     component: () =>
       import("../views/AppQuantum.vue")
+  },
+  {
+    path: "/special-pages",
+    name: "special-pages",
+    component: () =>
+      import("../views/SpecialPages.vue")
   }
 ];
 

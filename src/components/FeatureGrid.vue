@@ -51,7 +51,7 @@
           <div class="image rounded"><img class="img-left" src="../assets/pic07.jpg" alt="" /></div>
           <div class="content-right">
             <header>
-              <h4>Matematics</h4>
+              <h4>Mathematics</h4>
               <p class="content-subtitle">The art</p>
             </header>
             <p>"Mathematics, rightly viewed, possesses not only truth, but supreme beauty—a beauty cold and austere, like that of sculpture."
