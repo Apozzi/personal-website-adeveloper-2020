@@ -33,6 +33,12 @@ const routes: Array<RouteConfig> = [
     name: "special-pages",
     component: () =>
       import("../views/SpecialPages.vue")
+  },
+  {
+    path: "/selling-pages",
+    name: "selling-pages",
+    component: () =>
+      import("../views/SellingPages.vue")
   }
 ];
 

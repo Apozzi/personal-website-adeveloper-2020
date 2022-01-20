@@ -3,11 +3,16 @@
     <Menu />
     <div class="archive">
       <div class="archive-item" v-for="archive in archives" :key="archive">
+        <div class="archive-selling-tag-box" v-if="archive.isSelling">
+          <div class="archive-selling-tag">For Sale</div>
+        </div>
         <a v-bind:href="archive.link">
         <img class="archive-img" :src="archive.img">
         <div class="archive-title">{{archive.title}}</div>
         <div class="archive-subtitle">
-          {{archive.description}}
+          <span v-for="(line,lineNumber) of archive.description.split('\\n')" 
+            v-bind:key="lineNumber" >{{ line }}<br/>
+          </span>
         </div>
         </a>
       </div>
@@ -39,7 +44,8 @@ export default {
               img: data.img,
               title: data.title,
               description: data.description,
-              link: data.link
+              link: data.link,
+              isSelling: data.isSelling,
             });
         });
     });
@@ -77,6 +83,7 @@ export default {
   float: left;
   width: calc(100% - 408px);
   margin-top: 65px;
+  margin-bottom: 5px;
 }
 
 .archive-subtitle {
@@ -84,6 +91,25 @@ export default {
   text-align: left;
   margin-right: 40px;
   height: 100%;
+  word-break: break-word;
+}
+
+.archive-selling-tag {
+  position: absolute;
+  right: 56px;
+  margin-top: 23px;
+  background: #c91e43;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 8px 27px;
+  color: white;
+  border-radius: 12px;
+}
+
+.archive-selling-tag-box {
+  height: 0;
+  width: 0;
+  display: grid;
 }
 
 a {
