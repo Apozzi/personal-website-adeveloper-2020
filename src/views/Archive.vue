@@ -46,8 +46,10 @@ export default {
               description: data.description,
               link: data.link,
               isSelling: data.isSelling,
+              order: data.order || null
             });
         });
+        this.archives.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
     });
   }
 };

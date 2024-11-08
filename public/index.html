@@ -24,6 +24,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	
+	<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+	<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+	<script>document.addEventListener("DOMContentLoaded", function() {
+				renderMathInElement(document.body, {
+				  // customised options
+				  // • auto-render specific keys, e.g.:
+				  delimiters: [
+					  {left: '$$', right: '$$', display: true},
+					  {left: '$', right: '$', display: false},
+					  {left: '\\(', right: '\\)', display: false},
+					  {left: '\\[', right: '\\]', display: true}
+				  ],
+				  // • rendering keys, e.g.:
+				  throwOnError : false
+				});
+				setTimeout( () => {renderMathInElement(document.body)},300);
+			});
+			window.onload = function() {
+				setTimeout( () => {renderMathInElement(document.body)},300);
+			}</script>
+	
     
     <script src="js/jquery.min.js"></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
