@@ -4,8 +4,21 @@
     <div class="content">
       <div>
         <h2 class="title">Articles</h2>
-        <div class="carousel">
-
+        <div class="carousel__wrapper">
+          <carousel :navigationEnabled="true">
+          <slide>
+            Slide 1 Content
+          </slide>
+          <slide>
+            Slide 2 Content
+          </slide>
+          <slide>
+            Slide 3 Content
+          </slide>
+          <slide>
+            Slide 4 Content
+          </slide>
+        </carousel>
         </div>
     </div>
   </div>
@@ -13,12 +26,21 @@
   
 </template>
 
+
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import anime from "animejs";
 
+
+
 @Component
 export default class About extends Vue {
+
+  config = {
+    itemsToShow: 2.5,
+    gap: 5,
+    wrapAround: true,
+  };
 
   mounted() {
     // About Me

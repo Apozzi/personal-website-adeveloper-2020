@@ -6,6 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Toasted from 'vue-toasted';
 import * as firebase from 'firebase/app';
+// @ts-expect-error: No declaration file for module
+import VueCarousel from 'vue-carousel';
 
 require("firebase/auth");
 require("firebase/firestore");
@@ -13,6 +15,7 @@ require("firebase/analytics");
 
 
 Vue.use(Toasted);
+Vue.use(VueCarousel);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
 
