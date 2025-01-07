@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="item">Home</div>
     <div class="item"><a href="#about">About me</a></div>
-    <router-link to="/archive"><div v-if="!isMobile()" class="item">Archive</div></router-link>
+    <router-link to="/archive"><div v-if="!isMobile()" class="item">Projects</div></router-link>
     <router-link to="/contact"><div class="item">Contact</div></router-link>
   </div>
   

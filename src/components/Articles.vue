@@ -8,21 +8,26 @@
           <carousel :navigationEnabled="true">
           <slide>
             <div class="slide-content">
+              <div class="title-article">Como Hackear</div>
               <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc0.wallpaperflare.com%2Fpreview%2F111%2F43%2F764%2Fcode-coder-codes-coding.jpg&f=1&nofb=1&ipt=49602ef1f889e888a5f2277197ff8bc03127e1749b13301a60c9b661d4093191&ipo=images">
+              
             </div>
           </slide>
           <slide>
             <div class="slide-content">
+              <div class="title-article">Desenvolvendo em Angular</div>
               <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bacancytechnology.com%2Fblog%2Fwp-content%2Fuploads%2F2023%2F05%2FAngular-16.png&f=1&nofb=1&ipt=0556f1a0e290232e5ec58b0cf1e27b6665c4f1d335022ba0c01ee7a65d045efc&ipo=images">
             </div>
           </slide>
           <slide>
             <div class="slide-content">
+              <div class="title-article">Aprenda a desensolver em ReactJS</div>
               <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fik.imagekit.io%2Flaxaar%2F1686313855890ReactJS_2400x1200.png&f=1&nofb=1&ipt=eb487fa90df7337079a67e27c4b9f6dbb7a6f005651cb697f544f1b428ec7bd8&ipo=images">
             </div>
           </slide>
           <slide>
             <div class="slide-content">
+              <div class="title-article">O que é Golang?</div>
               <img class="slide-image" src="https://iglu.net/wp-content/uploads/2022/12/What-is-Golang.png">
             </div>
           </slide>
@@ -109,6 +114,8 @@ export default class About extends Vue {
   }
 
   .slide-content {
+    cursor: pointer;
+    position: relative;
     border: 2px solid #232323;
     height: 316px;
     margin-left: 30px;
@@ -135,6 +142,21 @@ export default class About extends Vue {
   .articles {
       background: #1c1c1c;
       height: 660px;
+  }
+
+  .title-article {
+    color: white;
+    font-size: 25px;
+    top: 241px;
+    background: #00000063;
+    width: calc(100% - 30px);
+    height: 100px;
+    position: absolute;
+    padding-top: 20px;
+    display: inline-flex
+;
+    padding-left: 30px;
+    font-family: Inter, BlinkMacSystemFont, Segoe UI, -apple-system;
   }
 
   .title {

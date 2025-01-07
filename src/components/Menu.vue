@@ -25,7 +25,7 @@
     <router-link to="/archive">
       <div class="item">
         <font-awesome-icon icon="archive" /> 
-        <div class="subtext">Archive</div>   
+        <div class="subtext">Projects</div>   
       </div>
     </router-link>
     <router-link to="/contact">
