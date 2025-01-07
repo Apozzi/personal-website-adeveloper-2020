@@ -1,5 +1,6 @@
 <template>
   <div class="contact">
+    <svg data-v-115b8bed="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1e3 42.18354"><g data-v-115b8bed=""><path data-v-115b8bed="" d="M.003 22.694 1e3 2.928v4.393l-.008-.054L0 42.184" style="fill: rgb(67 64 64);"></path><path data-v-115b8bed="" d="M.003.0H1e3v5.124-.022L.003 22.694" style="fill: rgb(28 28 28);"></path></g></svg>
     <div class="title">
       <div class="contact-text">Contact-me via email!</div>
       <router-link to="/contact"><Button class="contact-button" label="Here!" /></router-link>
@@ -25,7 +26,7 @@ export default class Contact extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .contact {
-    height: 300px;
+    height: 400px;
     background-color: #272727;
     background-image: url(https://www.transparenttextures.com/patterns/cartographer.png);
     background-attachment: fixed;

@@ -38,7 +38,6 @@ export default {
 
 <style scoped>
 .map-container {
-  padding: 2rem 0;
 }
 #map {
   height: 400px;

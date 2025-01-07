@@ -4,6 +4,7 @@
     <Banner msg="Vue.js App" />
     <FeatureGrid />
     <About />
+    <Articles/>
     <Contact />
     <Map/>
     <Footer />
@@ -18,6 +19,7 @@ import FeatureGrid from "@/components/FeatureGrid.vue";
 import About from "@/components/About.vue";
 import Contact from "@/components/Contact.vue";
 import Map from "@/components/Map.vue";
+import Articles from "@/components/Articles.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -29,6 +31,7 @@ export default {
     About,
     Contact,
     Map,
+    Articles,
     Footer
   }
 };
