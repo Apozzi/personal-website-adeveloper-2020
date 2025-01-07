@@ -5,6 +5,7 @@
     <FeatureGrid />
     <About />
     <Contact />
+    <Map/>
     <Footer />
   </div>
 </template>
@@ -16,6 +17,7 @@ import MenuHome from "@/components/MenuHome.vue";
 import FeatureGrid from "@/components/FeatureGrid.vue";
 import About from "@/components/About.vue";
 import Contact from "@/components/Contact.vue";
+import Map from "@/components/Map.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -26,6 +28,7 @@ export default {
     FeatureGrid,
     About,
     Contact,
+    Map,
     Footer
   }
 };
