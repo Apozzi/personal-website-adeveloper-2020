@@ -55,7 +55,7 @@ export default class About extends Vue {
   }
 
   .content {
-    padding: 4em 0 4em 0;
+    padding: 6em 0 4em 0;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;

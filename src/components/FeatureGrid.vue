@@ -147,7 +147,7 @@ export default class FeatureGrid extends Vue {
  }
 
  .major {
-    padding-bottom: 110px;
+    padding-bottom: 60px;
  }
 
  h2, h4 {
@@ -228,7 +228,7 @@ export default class FeatureGrid extends Vue {
  }
 
  .img-right {
-    border-radius: 100%;
+    border-radius: 20px;
     float: right;
     margin-left: 20px;
     margin-right: 30px;
@@ -237,7 +237,7 @@ export default class FeatureGrid extends Vue {
  }
 
  .img-left {
-    border-radius: 100%;
+    border-radius: 20px;
     float: left;
     margin-left: 30px;
     margin-right: 20px;
