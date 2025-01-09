@@ -23,6 +23,12 @@ const routes: Array<RouteConfig> = [
       import("../views/Contact.vue")
   },
   {
+    path: "/show-article",
+    name: "ShowArticle",
+    component: () =>
+      import("../views/ShowArticle.vue")
+  },
+  {
     path: "/jsquantum-simulator",
     name: "jsquantum-simulator",
     component: () =>
