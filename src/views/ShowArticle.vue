@@ -9,6 +9,8 @@
 import Menu from "@/components/Menu.vue";
 import { marked } from "marked";
 import * as firebase from 'firebase/app';
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
 
 export default {
   name: "ShowArticle",
@@ -25,7 +27,44 @@ export default {
     };
   },
   mounted() {
+    const renderer = new marked.Renderer();
+    
+    renderer.text = (text) => {
+      let processed = text;
+      const inlineMathRegex = /\$([^\$]+)\$/g;
+      
+      processed = processed.replace(inlineMathRegex, (match, latex) => {
+        try {
+          return katex.renderToString(latex, { displayMode: false });
+        } catch (err) {
+          console.error('Erro ao renderizar LaTeX:', err);
+          return match;
+        }
+      });
+      
+      return processed;
+    };
+
+    renderer.paragraph = (text) => {
+      const blockMathRegex = /\$\$([^\$]+)\$\$/g;
+      
+      if (text.match(blockMathRegex)) {
+        const processed = text.replace(blockMathRegex, (match, latex) => {
+          try {
+            return katex.renderToString(latex, { displayMode: true });
+          } catch (err) {
+            console.error('Erro ao renderizar LaTeX:', err);
+            return match;
+          }
+        });
+        return `<div>${processed}</div>`;
+      }
+      
+      return `<p>${text}</p>`;
+    };
+
     marked.setOptions({
+      renderer: renderer,
       breaks: true,
       gfm: true,
       smartypants: true
@@ -39,6 +78,7 @@ export default {
           this.article = doc.data();
           const sanitizedContent = this.article.content
             .replace(/\\n/g, '\n')
+            .replace(/\\\$/g, '\\$')
             .replace(/\\/g, '');
           
           this.renderedArticle = marked(sanitizedContent);
@@ -55,17 +95,17 @@ export default {
 .markdown-content {
   background: white;
   max-width: 800px;
-  margin: 0 auto; // Mantém o container centralizado
+  margin: 0 auto;
   padding: 20px;
   padding-left: 100px;
   padding-right: 100px;
   line-height: 1.6;
   
-  // Todo o conteúdo dentro do container será alinhado à esquerda
   * {
     text-align: left;
   }
   
+  // Estilos existentes...
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5em;
     margin-bottom: 0.8em;
@@ -78,6 +118,21 @@ export default {
 
   p {
     margin-bottom: 1.2em;
+  }
+
+  .katex-display {
+    margin: 1em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 3px;
+    }
   }
 
   ul, ol {
