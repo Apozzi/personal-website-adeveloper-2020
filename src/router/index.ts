@@ -24,7 +24,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/show-article",
-    name: "ShowArticle",
+    name: "show-article",
     component: () =>
       import("../views/ShowArticle.vue")
   },
