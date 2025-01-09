@@ -116,7 +116,7 @@ export default class About extends Vue {
   .slide-content {
     cursor: pointer;
     position: relative;
-    border: 2px solid #232323;
+    border: 4px solid #232323;
     height: 316px;
     margin-left: 30px;
     margin-right: 30px;
@@ -126,6 +126,7 @@ export default class About extends Vue {
   .slide-image{
     width: 100%;
     height: 100%;
+    border-radius: 10px;
   }
 
   @media screen and (max-width: 1200px) {
