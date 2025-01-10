@@ -5,33 +5,14 @@
       <div>
         <h2 class="title">Articles</h2>
         <div class="carousel__wrapper">
-          <carousel :navigationEnabled="true">
-          <slide>
-            <div class="slide-content">
-              <div class="title-article">Como Hackear</div>
-              <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc0.wallpaperflare.com%2Fpreview%2F111%2F43%2F764%2Fcode-coder-codes-coding.jpg&f=1&nofb=1&ipt=49602ef1f889e888a5f2277197ff8bc03127e1749b13301a60c9b661d4093191&ipo=images">
-              
-            </div>
-          </slide>
-          <slide>
-            <div class="slide-content">
-              <div class="title-article">Desenvolvendo em Angular</div>
-              <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.bacancytechnology.com%2Fblog%2Fwp-content%2Fuploads%2F2023%2F05%2FAngular-16.png&f=1&nofb=1&ipt=0556f1a0e290232e5ec58b0cf1e27b6665c4f1d335022ba0c01ee7a65d045efc&ipo=images">
-            </div>
-          </slide>
-          <slide>
-            <div class="slide-content">
-              <div class="title-article">Aprenda a desensolver em ReactJS</div>
-              <img class="slide-image" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fik.imagekit.io%2Flaxaar%2F1686313855890ReactJS_2400x1200.png&f=1&nofb=1&ipt=eb487fa90df7337079a67e27c4b9f6dbb7a6f005651cb697f544f1b428ec7bd8&ipo=images">
-            </div>
-          </slide>
-          <slide>
-            <div class="slide-content">
-              <div class="title-article">O que é Golang?</div>
-              <img class="slide-image" src="https://iglu.net/wp-content/uploads/2022/12/What-is-Golang.png">
-            </div>
-          </slide>
-        </carousel>
+          <carousel :navigationEnabled="true" :config="config">
+            <slide v-for="article in articles" :key="article.id">
+              <div class="slide-content" @click="navigateToArticle(article.id)">
+                <div class="title-article">{{ article.title }}</div>
+                <img class="slide-image" :src="article.img" :alt="article.title">
+              </div>
+            </slide>
+          </carousel>
         </div>
     </div>
   </div>
@@ -41,39 +22,35 @@
 
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import anime from "animejs";
-
-
+import { Component, Vue } from 'vue-property-decorator';
+import * as firebase from 'firebase/app';
 
 @Component
-export default class About extends Vue {
-
+export default class Articles extends Vue {
+  articles: any[] = [];
+  
   config = {
     itemsToShow: 2.5,
     gap: 5,
     wrapAround: true,
   };
 
-  mounted() {
-    // About Me
-    let loaded = false;
-    new IntersectionObserver((entries) => {
-    if (entries[0].intersectionRatio <= 0) return;
-    if (!loaded) {
-      loaded = true;
-      anime({
-        targets: [".profile", ".about-txt"],
-        translateY: 200,
-        duration: 1000,
-        direction: 'reverse',
-        color: 'rgba(0, 0, 0, 0)',
-        easing: 'easeInOutSine',
-        delay: 4000
-      });
-    }}).observe(this.$refs.about as Element);
+  async mounted() {
+    try {
+      const db = firebase.firestore();
+      const snapshot = await db.collection('articles').get();
+      this.articles = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+    } catch (error) {
+      console.error('Error loading articles:', error);
+    }
   }
 
+  navigateToArticle(id: string) {
+    this.$router.push(`/articles/${id}`);
+  }
 }
 </script>
 

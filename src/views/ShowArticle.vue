@@ -11,22 +11,22 @@ import { marked } from "marked";
 import * as firebase from 'firebase/app';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default {
-  name: "ShowArticle",
+@Component({
   components: {
     Menu
-  },
-  data() {
-    return {
-      article: {
-        title: "",
-        content: ""
-      },
-      renderedArticle: ""
-    };
-  },
-  mounted() {
+  }
+})
+export default class ShowArticle extends Vue {
+  article = {
+    id: '',
+    title: '',
+    content: '',
+    img: ''
+  };
+  renderedArticle = '';
+  async mounted() {
     const renderer = new marked.Renderer();
     
     renderer.text = (text) => {
@@ -70,23 +70,26 @@ export default {
       smartypants: true
     });
 
-    const db = firebase.firestore();
-    db.collection("articles").doc("exampleArticle")
-      .get()
-      .then(doc => {
-        if (doc.exists) {
-          this.article = doc.data();
-          const sanitizedContent = this.article.content
-            .replace(/\\n/g, '\n')
-            .replace(/\\\$/g, '\\$')
-            .replace(/\\/g, '');
-          
-          this.renderedArticle = marked(sanitizedContent);
-        }
-      })
-      .catch(error => {
-        console.error("Erro ao carregar o artigo:", error);
-      });
+    try {
+      const articleId = this.$route.params.id;
+      const db = firebase.firestore();
+      const doc = await db.collection("articles").doc(articleId).get();
+      
+      if (doc.exists) {
+        this.article = { id: doc.id, ...doc.data() };
+        const sanitizedContent = this.article.content
+          .replace(/\\n/g, '\n')
+          .replace(/\\\$/g, '\\$')
+          .replace(/\\/g, '');
+        
+        this.renderedArticle = marked(sanitizedContent);
+      } else {
+        this.$router.push('/'); // Redirect to home if article not found
+      }
+    } catch (error) {
+      console.error("Error loading article:", error);
+      this.$router.push('/');
+    }
   }
 };
 </script>
