@@ -14,14 +14,6 @@
       <div class="subtext">Home</div>
     </div>
     </router-link>
-    <router-link to="/#about">
-    <div class="item">
-      <a id="about" href="#about">
-        <font-awesome-icon icon="user" />  
-        <div class="subtext">About</div>
-      </a>
-    </div>
-    </router-link>
     <router-link to="/archive">
       <div class="item">
         <font-awesome-icon icon="archive" /> 

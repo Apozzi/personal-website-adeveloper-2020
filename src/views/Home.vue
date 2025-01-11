@@ -33,6 +33,14 @@ export default {
     Map,
     Articles,
     Footer
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0); 
+    }
+  },
+  mounted() {
+    this.scrollToTop();
   }
 };
 </script>
