@@ -38,7 +38,7 @@ export default class Articles extends Vue {
   async mounted() {
     try {
       const db = firebase.firestore();
-      const snapshot = await db.collection('articles').get();
+      const snapshot = await db.collection('articles').orderBy("id", "desc").get();
       this.articles = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
@@ -106,6 +106,10 @@ export default class Articles extends Vue {
     border-radius: 10px;
   }
 
+  .VueCarousel-slide:hover {
+    filter: brightness(0.5)
+  }
+
   @media screen and (max-width: 1200px) {
     .profile {
       display: none;
@@ -126,7 +130,7 @@ export default class Articles extends Vue {
     color: white;
     font-size: 25px;
     top: 241px;
-    background: #00000063;
+    background: #00000091;
     width: calc(100% - 30px);
     height: 100px;
     position: absolute;

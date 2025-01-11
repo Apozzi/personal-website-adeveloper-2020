@@ -65,7 +65,7 @@ export default class MenuHome extends Vue {
    &:hover {color: white !important;}
  }
 
- @media screen and (max-width: 400px) {
+ @media screen and (max-width: 450px) {
     .item {
         float: left;
         padding: 23px !important;

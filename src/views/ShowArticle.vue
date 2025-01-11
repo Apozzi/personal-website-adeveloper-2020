@@ -73,7 +73,8 @@ export default class ShowArticle extends Vue {
     try {
       const articleId = this.$route.params.id;
       const db = firebase.firestore();
-      const doc = await db.collection("articles").doc(articleId).get();
+      let docs = await db.collection("articles").where("id", "==", articleId).get();
+      const doc = docs.docs[0]
       
       if (doc.exists) {
         this.article = { id: doc.id, ...doc.data() };
