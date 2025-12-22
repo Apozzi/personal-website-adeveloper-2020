@@ -3,7 +3,7 @@
 Firebase url: https://personal-website-3c67f.web.app/
 Domain controlled by godaddy.com
 
-![Screenshot](https://i.ibb.co/n39Z9s6/site.png)
+![Capturar](https://github.com/user-attachments/assets/6387eef1-0f1c-49d3-94dc-77cd7a68525f)
 
 Please read the license...
 
