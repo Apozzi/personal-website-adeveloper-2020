@@ -1,12 +1,12 @@
 <template>
   <div id="archive" key="archive">
-    <Menu />
+    <Menu ref="menu"/>
     <div class="archive">
       <div class="archive-item" v-for="(archive, index) in archives" :key="archive.id || index">
         <div class="archive-selling-tag-box" v-if="archive.isSelling">
           <div class="archive-selling-tag">For Sale</div>
         </div>
-        <a :href="archive.link">
+        <a class="archive-link" :href="archive.link">
           <div class="archive-img-wrapper">
             <div class="archive-img-loader" v-if="!imageLoaded[index]">
               <div class="spinner"></div>
@@ -69,6 +69,14 @@ export default {
   methods: {
     onImageLoad(index) {
       this.$set(this.imageLoaded, index, true);
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    const menu = this.$refs.menu || this.$children.find(child => child.$options.name === 'Menu');
+    if (menu) {
+      menu.leave(() => next());
+    } else {
+      next();
     }
   }
 };
@@ -175,7 +183,7 @@ export default {
   display: grid;
 }
 
-a {
+.archive-link {
   text-decoration: none;
   display: block;
   overflow: hidden;

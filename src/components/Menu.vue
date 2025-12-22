@@ -30,6 +30,7 @@
   
 </template>
 
+
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import anime from "animejs";
@@ -58,6 +59,16 @@ export default class Menu extends Vue {
     });
   }
 
+  leave(callback: () => void) {
+    anime({
+      targets: [".menu"],
+      translateX: -400, 
+      opacity: 0,
+      duration: 600,
+      easing: 'easeInOutSine',
+      complete: callback
+    });
+  }
 }
 </script>
 
@@ -116,9 +127,10 @@ a {
     right: 44px;
     z-index: 1000;
     width: 119px;
-    background-color: #7d7d7d;
+    background-color: #c91e43;
     margin-bottom: 7px;
     padding: 9px 4px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 240);
 }
 
 </style>

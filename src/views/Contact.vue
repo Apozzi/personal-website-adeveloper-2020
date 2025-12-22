@@ -1,6 +1,6 @@
 <template>
   <div id="about" key="about" class="about">
-    <Menu />
+    <Menu ref="menu"/>
     <section id="main" class="wrapper">
 				<div class="container">
 				<h2 class="contact-txt">Contact</h2>
@@ -116,6 +116,14 @@ export default {
       emailjs.send(serviceId, templateId, templateParams);
       this.sended = true;
       return;
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    const menu = this.$refs.menu || this.$children.find(child => child.$options.name === 'Menu');
+    if (menu) {
+      menu.leave(() => next());
+    } else {
+      next();
     }
   }
 };

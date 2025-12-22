@@ -1,3 +1,4 @@
+
 <template>
   <div id="app" appear>
     <transition name="slide" mode="out-in">
@@ -5,6 +6,7 @@
     </transition>
   </div>
 </template>
+
 
 <style lang="scss">
 html {
