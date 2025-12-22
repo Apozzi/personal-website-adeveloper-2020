@@ -2,18 +2,31 @@
   <div id="archive" key="archive">
     <Menu />
     <div class="archive">
-      <div class="archive-item" v-for="archive in archives" :key="archive">
+      <div class="archive-item" v-for="(archive, index) in archives" :key="archive.id || index">
         <div class="archive-selling-tag-box" v-if="archive.isSelling">
           <div class="archive-selling-tag">For Sale</div>
         </div>
-        <a v-bind:href="archive.link">
-        <img class="archive-img" :src="archive.img">
-        <div class="archive-title">{{archive.title}}</div>
-        <div class="archive-subtitle">
-          <span v-for="(line,lineNumber) of archive.description.split('\\n')" 
-            v-bind:key="lineNumber" >{{ line }}<br/>
-          </span>
-        </div>
+        <a :href="archive.link">
+          <div class="archive-img-wrapper">
+            <div class="archive-img-loader" v-if="!imageLoaded[index]">
+              <div class="spinner"></div>
+            </div>
+            <img
+              class="archive-img"
+              loading="lazy"
+              :src="archive.img"
+              @load="onImageLoad(index)"
+              :class="{ 'loaded': imageLoaded[index] }"
+              alt="Archive image"
+            >
+          </div>
+          <div class="archive-title">{{ archive.title }}</div>
+          <div class="archive-subtitle">
+            <span v-for="(line, lineNumber) in archive.description.split('\\n')" 
+                  :key="lineNumber">
+              {{ line }}<br/>
+            </span>
+          </div>
         </a>
       </div>
     </div>
@@ -26,31 +39,37 @@ import * as firebase from 'firebase/app';
 
 export default {
   name: "Archive",
-  components: {
-    Menu
-  },
+  components: { Menu },
   data() {
-    return { 
-      archives: []
+    return {
+      archives: [],
+      imageLoaded: []
     };
   },
   mounted() {
     const db = firebase.firestore();
     db.collection("archive").get()
-    .then(querySnapshot => {
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            this.archives.push({
-              img: data.img,
-              title: data.title,
-              description: data.description,
-              link: data.link,
-              isSelling: data.isSelling,
-              order: data.order || null
-            });
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const data = doc.data();
+          this.archives.push({
+            id: doc.id,
+            img: data.img,
+            title: data.title,
+            description: data.description,
+            link: data.link,
+            isSelling: data.isSelling || false,
+            order: data.order || null
+          });
+          this.imageLoaded.push(false);
         });
         this.archives.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
-    });
+      });
+  },
+  methods: {
+    onImageLoad(index) {
+      this.$set(this.imageLoaded, index, true);
+    }
   }
 };
 </script>
@@ -63,6 +82,7 @@ export default {
 
 .archive-item {
   height: 309px;
+  position: relative;
   &:hover {
     cursor: pointer;
     background: #ffffff1a;
@@ -70,11 +90,53 @@ export default {
   border-bottom: solid 1px #616161;
 }
 
-.archive-img {
-  height: 218px;
-  width: 322px;
+.archive-img-wrapper {
+  position: relative;
   float: left;
+  width: 322px;
+  height: 218px;
   margin: 40px;
+  background: #2a2a2a;
+  overflow: hidden;
+}
+
+.archive-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.archive-img-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-left-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .archive-title {
@@ -92,7 +154,6 @@ export default {
   color: white;
   text-align: left;
   margin-right: 40px;
-  height: 100%;
   word-break: break-word;
 }
 
@@ -116,13 +177,25 @@ export default {
 
 a {
   text-decoration: none;
+  display: block;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 700px) {
   .archive {
-    margin-left: 0px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .archive-img-wrapper {
+    margin: 20px auto;
+    float: none;
+  }
+  
+  .archive-title {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 }
-
-
 </style>

@@ -11,7 +11,7 @@
       <img class="profile" alt="profile" src="../assets/profile.jpg" />
       <div class="about-txt">
         <h2>About me</h2>
-        <p>Hello my name is Anderson Rodrigo Pozzi I work with program development and live in Blumenau. Among my hobbies, this programming, robotics, illustration and music.</p>
+        <p>Hello my name is Anderson Pozzi I work with program development and live in Blumenau. Among my hobbies, this programming, robotics, illustration and music.</p>
         <p>Of my too many academic and creative interests, I still like to maintain the evolutionary progress of my mind and the way in which I live, also not letting myself be affected by too much misfortunes.</p>
       </div>
     </div>

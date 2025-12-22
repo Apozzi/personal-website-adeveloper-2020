@@ -32,7 +32,7 @@
       <p class="description less-margin">Thank you for visiting my site!</p>
       <div id="external">
         <a class="external-link" href="https://github.com/Apozzi"><i class="fab fa-github"></i></a>
-        <a class="external-link" href="https://br.linkedin.com/in/anderson-rodrigo-pozzi-a06246186"><i class="fab fa-linkedin"></i></a>
+        <a class="external-link" href="https://www.linkedin.com/in/anderson-pozzi-a06246186"><i class="fab fa-linkedin"></i></a>
         <!--<a class="external-link" href="https://twitter.com/PAngelAndy"><i class="fab fa-twitter"></i></a> -->
         <a class="external-link" href="https://drive.google.com/file/d/1KZDJPO-VqTqIxZi8M2nFZDbsSW8sfsOZ/view?usp=sharing"><Button class="curriculum-button" label="Curriculum vitae"/></a>
       </div>

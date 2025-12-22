@@ -1,4 +1,4 @@
-# Personal website, Anderson Rodrigo Pozzi.
+# Personal website, Anderson Pozzi.
 
 Firebase url: https://personal-website-3c67f.web.app/
 Domain controlled by godaddy.com
