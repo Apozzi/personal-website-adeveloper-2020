@@ -36,6 +36,7 @@
 <script>
 import Menu from "@/components/Menu.vue";
 import * as firebase from 'firebase/app';
+import { trackPageVisit } from '@/utils/trackPageVisit';
 
 export default {
   name: "Archive",
@@ -47,6 +48,7 @@ export default {
     };
   },
   mounted() {
+    //trackPageVisit(`archive`);
     const db = firebase.firestore();
     db.collection("archive").get()
       .then(querySnapshot => {

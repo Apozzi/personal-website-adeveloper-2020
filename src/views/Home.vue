@@ -21,6 +21,7 @@ import Contact from "@/components/Contact.vue";
 import Map from "@/components/Map.vue";
 import Articles from "@/components/Articles.vue";
 import Footer from "@/components/Footer.vue";
+import { trackPageVisit } from '@/utils/trackPageVisit';
 
 export default {
   name: "Home",
@@ -41,6 +42,7 @@ export default {
   },
   mounted() {
     this.scrollToTop();
+    //trackPageVisit(`home`);
   }
 };
 </script>

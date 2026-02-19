@@ -3,8 +3,12 @@
 </template>
 
 <script>
+import { trackPageVisit } from '@/utils/trackPageVisit';
 export default {
-  name: "Archive"
+  name: "SpecialPages",
+  mounted() {
+    //trackPageVisit(`special-pages-${this.$route.query.route}`);
+  }
 };
 </script>
 

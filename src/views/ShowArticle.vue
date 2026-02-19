@@ -12,6 +12,7 @@ import * as firebase from 'firebase/app';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import { Component, Vue } from 'vue-property-decorator';
+import { trackPageVisit } from '@/utils/trackPageVisit';
 
 @Component({
   components: {
@@ -27,6 +28,7 @@ export default class ShowArticle extends Vue {
   };
   renderedArticle = '';
   async mounted() {
+    //trackPageVisit(`show-article-${this.$route.params.id}`);
     const renderer = new marked.Renderer();
     
     renderer.text = (text) => {

@@ -46,6 +46,7 @@
 <script>
 import Menu from "@/components/Menu.vue";
 import Button from "@/components/Button.vue";
+import { trackPageVisit } from '@/utils/trackPageVisit';
 
 /* eslint-disable */
 emailjs.init("user_Q0FwMsJJJCxlHVu4L0luy");
@@ -67,6 +68,9 @@ export default {
       errorMsg: "",
       sended: false
     };
+  },
+  mounted() {
+    //trackPageVisit(`contact`);
   },
   methods: {
     isMobile() {
