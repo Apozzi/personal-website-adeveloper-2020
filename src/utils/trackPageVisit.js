@@ -11,7 +11,7 @@ export async function trackPageVisit(pageName = 'unknown-page') {
     const ipRes = await fetch('https://free.freeipapi.com/api/json');
     const data = ipRes.ok ? await ipRes.json() : {};
 
-    if (data.isProxy === true) return;
+    if (data.isProxy === true || data.operadora === "Maxihost LTDA") return;
     const db = firebase.firestore();
 
     await db.collection('page_visits').add({
